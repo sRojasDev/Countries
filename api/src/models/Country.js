@@ -30,19 +30,19 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     area:{
-      type:DataTypes.INTEGER,
-      allowNull: false,
+      type:DataTypes.FLOAT,
+      allowNull: true,
     },
     population:{
       type:DataTypes.INTEGER,
       allowNull: false,
     },
     lat:{
-      type:DataTypes.INTEGER,
+      type:DataTypes.FLOAT,
       allowNull: true
     },
     long:{
-      type:DataTypes.INTEGER,
+      type:DataTypes.FLOAT,
       allowNull: true
     },
 
