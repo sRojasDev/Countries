@@ -10,6 +10,7 @@ function guardarPaises(array){
 
 
 function obtenerPaises(req, res){
+    let status=200;
     const listPaises= axios.get("https://restcountries.com/v2/all")
     
     .then(paises  =>  paises.data?.map(el=> {
@@ -49,9 +50,14 @@ function obtenerPaises(req, res){
     .then(lista=> {
         console.log("se obtuvieron los paises de la api");
         guardarPaises(lista);
-        res.status(200).send("Se guardaron los países en la base de datos");
+        console.log("Se guardaron los países en la base de datos");
+        return status;
     })
-    .catch(err=> res.send(err));
+    .catch(err=> {
+        console.log("no se pudo cargar la lista de paises");
+        console.log(err);
+        status=404;
+        return status });
     
     return listPaises;    
 }
