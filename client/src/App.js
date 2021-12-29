@@ -9,10 +9,12 @@ import BuscarAct from './components/actividades/BuscarAct';
 import BorrarAct from './components/actividades/BorrarAct';
 import ActualizarAct from './components/actividades/ActualizarAct';
 import CrearActividad from './components/actividades/CrearActividad';
+import NavBar from './components/nav/NavBar.jsx';
 
 function App() {
   return (
     <BrowserRouter>
+    <NavBar/>
     <Routes>
     <Route path='/' element={<Landing/>}  />
     <Route path='/home' element={<Home/>}  />

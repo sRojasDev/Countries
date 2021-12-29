@@ -1,7 +1,7 @@
 export default function SearchBar(){
     return( 
         <div>
-            <h2>Componente SearchBar</h2>
+            <h3>Componente SearchBar</h3>
         </div>
     )
 }
