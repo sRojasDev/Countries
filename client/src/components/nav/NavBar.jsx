@@ -1,15 +1,28 @@
 import SearchBar from "./SearchBar";
-import { NavLink } from "react-router-dom";
+import { NavLink , useLocation} from "react-router-dom";
+import './nav.css';
+import styled from "styled-components";
+import { StiledLink } from "./styleNav";
 
 export default function NavBar(){
+    const location=useLocation();
+    console.log(location.pathname);
+    const Menu= styled.nav`
+    background: #00242a;
+    color: #fff;
+    display:flex;
+    flex-direction:raw;
+    `;
+    
+
     return( 
-        <div>
+        <Menu className={location.pathname==="/"?"hidden": "menu"}>
             <h2>Componente Menú</h2>
             <>
-            <NavLink to='/home' > Países </NavLink> <br />
-            <NavLink to='/actividad' >Actividades</NavLink> 
+            <StiledLink to='/home' > Países </StiledLink> <br />
+            <StiledLink to='/actividad' >Actividades</StiledLink> 
             </>
             <SearchBar/>
-        </div>
+        </Menu>
     )
 }
