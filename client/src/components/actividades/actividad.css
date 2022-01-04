@@ -1,0 +1,18 @@
+.danger {
+    border: red 1px solid;
+}
+.error{
+    color:#ff8900;
+    
+}
+/* {<label htmlFor="">Nombre:</label>
+    <input type="text" value={datos.nombre}  name="nombre" placeholder="surf" 
+        className={error.nombre && 'danger'} 
+        onChange={(e) => validarDato(e)} />
+    {!error.nombre ? null : <label className="error">{error.nombre}</label>
+}  */
+/* <input type="radio" name="dificultad" value="1"/>1 Muy tranqui  <br/>
+                    <input type="radio" name="dificultad" value="2"/>2 Tranqui <br/>
+                    <input type="radio" name="dificultad" value="3"/>3 Maso <br/>
+                    <input type="radio" name="dificultad" value="4"/>4 Heavy <br/>
+                    <input type="radio" name="dificultad" value="5"/>5 Muy heavy <br/> */

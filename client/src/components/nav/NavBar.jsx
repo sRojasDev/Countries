@@ -11,13 +11,15 @@ export default function NavBar(){
     background: #00242a;
     color: #fff;
     display:flex;
-    flex-direction:raw;
+    justify-content: space-between;
+    
+
     `;
     
 
     return( 
         <Menu className={location.pathname==="/"?"hidden": "menu"}>
-            <h2>Componente Menú</h2>
+            
             <>
             <StiledLink to='/home' > Países </StiledLink> <br />
             <StiledLink to='/actividad' >Actividades</StiledLink> 

@@ -1,6 +1,6 @@
 
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import {CardLink} from "../nav/styleNav";
 
 export default function Card({name, flag, region, id}){
 
@@ -27,18 +27,22 @@ export default function Card({name, flag, region, id}){
         background: rgba(219, 184, 94, 0.9);
         color: #00242a;
         
+        h3{
+            font-weight:500;
+        }
     }
     `;
     //background: rgba(248, 182, 13, 0.8);
    //rgba(248, 182, 13, 0.74);
     return( 
-        <Link to={`/detail/${id}`}>
+        
         <Targeta key={id}>
-            <h3>{name}</h3> <br/>
-            <MyImg src={flag}  alt={""} width="100%" /> <br/>
-            <p>{region}</p>
-
+            <CardLink to={`/detail/${id}`}>
+            <h3> {name}</h3> <br/>
+                <MyImg src={flag}  alt={""} width="100%" /> <br/>
+                <p>{region}</p>
+            </CardLink>
         </Targeta>
-        </Link>
+        
     )
 }

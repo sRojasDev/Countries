@@ -32,7 +32,11 @@ h3 h4{
   font-weight:400;
   font-size: medium;
 }
+p{
+  margin-top: 0.9em;
+  font-size: 1em;
 
+}
 `;
 
 function App() {
