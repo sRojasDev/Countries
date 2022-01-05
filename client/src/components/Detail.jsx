@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getCountryById } from "../redux/actions";
+import { getCountryById, vaciar_estado } from "../redux/actions";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import NoPais from "./notFound/NoPais";
 import styled from "styled-components";
+
 export default function Detail(){
     const [mas,setMas]=useState(false);
     const dispatch= useDispatch();
     const {id}= useParams();
-    const pais= useSelector(store=>store.paises["0"]);
+    const pais= useSelector(store=>store.detail["0"]);
     useEffect(()=>{
-        dispatch(getCountryById(id))
+        dispatch(getCountryById(id));
     }, [dispatch,id])
+
+    // useEffect(()=>{
+    //     return dispatch(vaciar_estado("dt"))
+    // }, [])
 
     function handleClick(){
         console.log("llegó a handleClick");
@@ -43,6 +49,11 @@ export default function Detail(){
     const Div1=styled.div`
     margin-top: 4%;
     `;
+    while(!pais){
+        return(
+            <NoPais/>
+        )
+    }
     return( 
         <Detalles>
             

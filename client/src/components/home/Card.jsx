@@ -1,8 +1,17 @@
 
 import styled from "styled-components";
 import {CardLink} from "../nav/styleNav";
+import { useDispatch } from "react-redux";
+import { getCountryById } from "../../redux/actions";
 
 export default function Card({name, flag, region, id}){
+
+    const dispatch = useDispatch();
+
+    function handleClick() {
+        dispatch(getCountryById(id));
+    }
+
 
     const MyImg=styled.img`
     width: 100%;
@@ -37,7 +46,7 @@ export default function Card({name, flag, region, id}){
     return( 
         
         <Targeta key={id}>
-            <CardLink to={`/detail/${id}`}>
+            <CardLink to={`/detail/${id}`} onClick={()=>handleClick}>
             <h3> {name}</h3> <br/>
                 <MyImg src={flag}  alt={""} width="100%" /> <br/>
                 <p>{region}</p>

@@ -1,11 +1,12 @@
 import Card from "./Card";
-import {useSelector}  from "react-redux";
+//import {useSelector}  from "react-redux";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Paginado from "../Paginado";
+import NoPais from "../notFound/NoPais";
 
-export default function Cards({nro}){
-    const paisesArr= useSelector(state=>state.allCountries);
+export default function Cards({paises, nro}){
+    const paisesArr= paises;
     const [currentPage, setCurrentPage]= useState(1);
     const [paisesPorPag, setPaisesPorPag]= useState(10);
     const [segmento, setSegmento]= useState(1);
@@ -66,6 +67,12 @@ export default function Cards({nro}){
     text-shadow: 1px 1px  rgb(0, 36, 42, 0.8);
 
     `;
+    if(paisesArr.length<1 || !paises.length){
+        return (
+            <NoPais/>
+        )
+    }
+
     return( <div>
         <Paginado paisesPorPag={paisesPorPag} paisesArr={paisesArr&& paisesArr.length} paginado={paginado} segmento={segmento} segmentar={segmentar} currentPage={currentPage}  />
         <Container key={nro}>

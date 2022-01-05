@@ -23,6 +23,21 @@ const getCountryById= async (id, paises) =>{
     console.log("result: "+ filtrados);
     return filtrados;
 }
+const getActivity= async (req, res) =>{
+    console.log("entró a buscarActividades");
+    try{let result= await Activity.findAll({
+        attributes: ['nombre']
+    })
+    res.send(result);
+    return result;
+    } 
+    catch (err){
+        res.status(404).send(err.message)
+    }
+return(console.log("getActivity"))
+}
 
 
-module.exports= { getCountries, getCountryByName , getCountryById }
+
+
+module.exports= { getCountries, getCountryByName , getCountryById, getActivity }

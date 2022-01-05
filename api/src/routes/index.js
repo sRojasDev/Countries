@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getCountries, getCountryByName , getCountryById } = require('../controllers/gets');
+const { getCountries, getCountryByName , getCountryById, getActivity } = require('../controllers/gets');
 const addActivity = require('../controllers/post');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -51,6 +51,7 @@ router.get('/countries/:id',async (req,res) =>{
     catch(err){ res.status(404).send(err.message)}
 }
 );
+router.get('/activity', getActivity);
 
 router.post('/activity', addActivity);
 

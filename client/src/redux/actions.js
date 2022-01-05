@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_COUNTRIES, URL_BASE_PAIS, GET_COUNTRY_BY_ID } from "./constantes";
+import { GET_COUNTRIES, GET_ACTIVITY ,URL_BASE_PAIS, GET_COUNTRY_BY_ID , FILTER_ACTIVIDAD, FILTER_CONTINENTE, ORDEN_AZ, ORDEN_ZA, ORDEN_POBL_MAY, ORDEN_POBL_MENOR} from "./constantes";
 
 export function getPaises() {
     console.log("se despachó get Países");
@@ -23,3 +23,56 @@ export function getCountryById(id) {
             });
     }
 }
+export const loadActivity = () => {
+    return async (dispatch) => {
+        try {
+            const api = await axios.get('/activity')
+            const res= api.data?.map(a=> a.nombre);
+            return dispatch({
+                type: GET_ACTIVITY,
+                payload: res,
+            })
+        }
+        catch (error) { console.log(error) }
+    }
+};
+
+export function orden_AZ(){
+    return {
+        type: ORDEN_AZ,
+    };
+};
+
+export const orden_ZA = () => {
+    return {
+        type: ORDEN_ZA
+    };
+};
+
+export const filter_Continente = (continente) => {
+    return {
+        type: FILTER_CONTINENTE,
+        payload: continente
+    };
+};
+
+export const filter_Actividad = (act) => {
+    return {
+        type: FILTER_ACTIVIDAD,
+        payload: act
+    };
+};
+
+export const orden_Pobl_MAY = (poblacion) => {
+    return {
+        type: ORDEN_POBL_MAY,
+        payload: poblacion
+    };
+};
+export const orden_Pobl_Menor = (poblacion) => {
+    return {
+        type: ORDEN_POBL_MENOR,
+        payload: poblacion
+    };
+};
+
