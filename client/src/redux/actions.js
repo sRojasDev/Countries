@@ -75,4 +75,11 @@ export const orden_Pobl_Menor = (poblacion) => {
         payload: poblacion
     };
 };
+export const getCountryByName = (nombre) => {
+    console.log("se despachó by Name "+nombre);
+    return {
+        type: "GET_BY_NAME",
+        payload: nombre
+    };
+};
 

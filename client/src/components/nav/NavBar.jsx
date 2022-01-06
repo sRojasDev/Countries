@@ -4,7 +4,7 @@ import './nav.css';
 import styled from "styled-components";
 import { StiledLink } from "./styleNav";
 
-export default function NavBar(){
+export default function NavBar(setFilter){
     const location=useLocation();
     console.log(location.pathname);
     const Menu= styled.nav`
@@ -24,7 +24,7 @@ export default function NavBar(){
             <StiledLink to='/home' > Países </StiledLink> <br />
             <StiledLink to='/actividad' >Actividades</StiledLink> 
             </>
-            <SearchBar/>
+            <SearchBar  />
         </Menu>
     )
 }

@@ -11,7 +11,7 @@ function guardarPaises(array){
 
 function obtenerPaises(req, res){
     let status=200;
-    const listPaises= axios.get("https://restcountries.com/v2/all")
+    const listPaises= axios.get("http://restcountries.com/v2/all")
     
     .then(paises  =>  paises.data?.map(el=> {
             const pais= { 

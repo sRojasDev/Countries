@@ -4,21 +4,26 @@ import images from "../imgs/images";
 import { useState, useEffect } from "react";
 import {useSelector, useDispatch }  from "react-redux";
 import {  filter_Actividad,filter_Continente, orden_AZ, orden_ZA, orden_Pobl_MAY, orden_Pobl_Menor ,loadActivity, getPaises } from '../../redux/actions';
+import NavBar from "../nav/NavBar";
+import "../nav/nav.css";
 //import Filtros from "../filtro/filtros";
 
 export default function Home(){
-
+    const estado= useSelector(state=> state);
     const activArr= useSelector((state)=> state.actividades);
     const paisesArr=useSelector(store => store.allCountries); 
     const paises = useSelector(store=>store.paises); 
-
     const dispatch= useDispatch();
 
     const [filter, setFilter] = useState('ALL');
 
     useEffect(() => {
         loadActivity();
-            !paises? dispatch(getPaises()): loadActivity(); 
+            !paises? dispatch(getPaises()):loadActivity(); 
+    },[paises]);
+
+    useEffect(() => {
+        console.log(paises); 
     },[paises]);
     
     // function handle_filter_Continente(e){
@@ -66,7 +71,7 @@ export default function Home(){
 
     return( 
         <Fondo>
-            <h2>.  Países del Mundo </h2>
+            
             <form>
         <div className='form-filters'>
         <div>
@@ -112,7 +117,8 @@ export default function Home(){
     </form>
         <div>
         <h2>.  Países del Mundo </h2>
-        {paisesArr && filter === 'ALL' && <Cards paises={paisesArr} />}
+        {paisesArr && filter === 'ALL'&& !paises && <Cards paises={paisesArr} />}
+        {paises && filter === 'ALL'&& <Cards paises={paises} />}
         {filter ==='continente' && <Cards paises={paises} />}
         {filter === 'actividad' && <Cards paises={paises} />}
         {filter === 'a-z' && <Cards paises={paises} />}

@@ -140,6 +140,23 @@ function rootReducer(state =initialState, action = {}){
                         })
                     }
                 }
+            case "GET_BY_NAME":
+                if(!action.payload || action.payload[0]=== null){
+                    return {
+                        ...state,
+                        error:true,
+                    }
+                } else{
+                    let result = state.allCountries?.filter(el => {
+                        if (el.name.toLowerCase() === action.payload.toLowerCase()) {
+                            return el
+                        }
+                    }) 
+
+                return {
+                    ...state,
+                    paises: result,
+                }}
         default:
             console.log("entro al default reducer");
             return state    
