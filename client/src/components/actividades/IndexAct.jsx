@@ -2,8 +2,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import { StiledLink, CardLink } from "../nav/styleNav";
 import styled from "styled-components";
 import imgs from "../imgs/images";
+import {getPaises} from "../../redux/actions";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export default function IndexAct(){
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getPaises())
+    }, [])
 
     const Contenedor=styled.div`
     background-image: url(${imgs.actfondo});

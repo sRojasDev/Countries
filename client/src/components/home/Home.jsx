@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import {useSelector, useDispatch }  from "react-redux";
 import {  filter_Actividad,filter_Continente, orden_AZ, orden_ZA, orden_Pobl_MAY, orden_Pobl_Menor ,loadActivity, getPaises } from '../../redux/actions';
 import NavBar from "../nav/NavBar";
+import NoPais from "../notFound/NoPais";
 import "../nav/nav.css";
 //import Filtros from "../filtro/filtros";
 
@@ -67,7 +68,9 @@ export default function Home(){
     background-position: 60 40;
     background-attachment:auto;
     `;
-    
+    while(estado.error && paises.length===0 ){
+        return( <NoPais/> )
+    }
 
     return( 
         <Fondo>
@@ -117,6 +120,7 @@ export default function Home(){
     </form>
         <div>
         <h2>.  Países del Mundo </h2>
+        {estado.error && paises.length===0 && <NoPais/>}
         {paisesArr && filter === 'ALL'&& !paises && <Cards paises={paisesArr} />}
         {paises && filter === 'ALL'&& <Cards paises={paises} />}
         {filter ==='continente' && <Cards paises={paises} />}
@@ -126,6 +130,7 @@ export default function Home(){
         {filter === 'pobla+' && <Cards paises={paises} />}
         {filter === 'pob-' && <Cards paises={paises} />}
         {filter === 'search' && <Cards paises={paises} />}
+        
         </div>
         </Fondo>
     )

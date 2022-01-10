@@ -1,10 +1,12 @@
-
+import styled from "styled-components";
 export default function NoPais(){
-
+ const MyDiv=styled.div`
+ color:#fff;
+ `
     return (
-    <div>
+    <MyDiv>
         No se encontró el país buscado.
 
-    </div>
+    </MyDiv>
     );
 }

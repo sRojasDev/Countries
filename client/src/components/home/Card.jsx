@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {CardLink} from "../nav/styleNav";
 import { useDispatch } from "react-redux";
 import { getCountryById } from "../../redux/actions";
+import NoPais from "../notFound/NoPais";
 
 export default function Card({name, flag, region, id}){
 
@@ -43,13 +44,16 @@ export default function Card({name, flag, region, id}){
     `;
     //background: rgba(248, 182, 13, 0.8);
    //rgba(248, 182, 13, 0.74);
+    while(!flag || !region || !name || !id){
+        return (<NoPais/>)
+    }
     return( 
         
-        <Targeta key={id}>
-            <CardLink to={`/detail/${id}`} onClick={()=>handleClick}>
-            <h3> {name}</h3> <br/>
-                <MyImg src={flag}  alt={""} width="100%" /> <br/>
-                <p>{region}</p>
+        <Targeta key={id||""}>
+            <CardLink to={`/detail/${id || ""}`} onClick={()=>handleClick}>
+            <h3> {name || ""}</h3> <br/>
+                <MyImg src={flag||""}  alt={""} width="100%" /> <br/>
+                <p>{region || ""}</p>
             </CardLink>
         </Targeta>
         

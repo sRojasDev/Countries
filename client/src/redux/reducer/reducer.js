@@ -9,6 +9,7 @@ const initialState={
     allCountries:[],
     actividades:[],
     detail:[],
+    error:false,
 }
 
 function rootReducer(state =initialState, action = {}){
@@ -54,6 +55,10 @@ function rootReducer(state =initialState, action = {}){
                                 paises: state.allCountries.filter(p => {
                                 return p.region === action.payload })}
                         }
+            case "POST_ACTIVITY":    
+                            return { ...state,
+                        actividades: action.payload ,
+                    }
             case GET_ACTIVITY:
                     return { ...state,
                             actividades: action.payload ,
@@ -148,15 +153,13 @@ function rootReducer(state =initialState, action = {}){
                     }
                 } else{
                     let result = state.allCountries?.filter(el => {
-                        if (el.name.toLowerCase() === action.payload.toLowerCase()) {
+                        
+                        if (el.name.toLowerCase().includes(action.payload.toLowerCase())) {
                             return el
                         }
                     }) 
-
-                return {
-                    ...state,
-                    paises: result,
-                }}
+                return  result.length>0 ? {...state,  paises: result,}  : {...state, error:true }   
+            }
         default:
             console.log("entro al default reducer");
             return state    

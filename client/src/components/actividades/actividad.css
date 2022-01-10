@@ -5,14 +5,27 @@
     color:#ff8900;
     
 }
-/* {<label htmlFor="">Nombre:</label>
-    <input type="text" value={datos.nombre}  name="nombre" placeholder="surf" 
-        className={error.nombre && 'danger'} 
-        onChange={(e) => validarDato(e)} />
-    {!error.nombre ? null : <label className="error">{error.nombre}</label>
-}  */
-/* <input type="radio" name="dificultad" value="1"/>1 Muy tranqui  <br/>
-                    <input type="radio" name="dificultad" value="2"/>2 Tranqui <br/>
-                    <input type="radio" name="dificultad" value="3"/>3 Maso <br/>
-                    <input type="radio" name="dificultad" value="4"/>4 Heavy <br/>
-                    <input type="radio" name="dificultad" value="5"/>5 Muy heavy <br/> */
+.form{
+    background:#7babc5;
+    color:#fff;
+    text-align: center;
+}
+.paises{
+    display: grid;
+    height: 140px;
+    text-align: start;
+    padding-left:14%;
+    margin-bottom: 8% ;
+    grid-template-columns: repeat(2 ,minmax(100px,4fr));
+    overflow-y:scroll;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,4fr));
+}
+.flag{
+    height: 18px;
+    width: 20px;
+    border-radius:50%;
+    object-fit: cover;
+}

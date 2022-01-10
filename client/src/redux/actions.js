@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_COUNTRIES, GET_ACTIVITY ,URL_BASE_PAIS, GET_COUNTRY_BY_ID , FILTER_ACTIVIDAD, FILTER_CONTINENTE, ORDEN_AZ, ORDEN_ZA, ORDEN_POBL_MAY, ORDEN_POBL_MENOR} from "./constantes";
+import { GET_COUNTRIES, GET_ACTIVITY ,URL_BASE_PAIS,  GET_COUNTRY_BY_ID , FILTER_ACTIVIDAD, FILTER_CONTINENTE, ORDEN_AZ, ORDEN_ZA, ORDEN_POBL_MAY, ORDEN_POBL_MENOR} from "./constantes";
 
 export function getPaises() {
     console.log("se despachó get Países");
@@ -23,6 +23,21 @@ export function getCountryById(id) {
             });
     }
 }
+
+export function postActivity(){
+    return async (dispatch) => {
+        try {
+            const api = await axios.post(`${URL_BASE_PAIS}/activity`)
+            const res= api.data?.map(a=> a.nombre);
+            return dispatch({
+                type: "POST_ACTIVITY",
+                payload: res,
+            })
+        }
+        catch (error) { console.log(error) }
+    }
+}
+
 export const loadActivity = () => {
     return async (dispatch) => {
         try {
@@ -75,8 +90,17 @@ export const orden_Pobl_Menor = (poblacion) => {
         payload: poblacion
     };
 };
-export const getCountryByName = (nombre) => {
+export const getCountryByName = (nombre, arrPaises) => {
     console.log("se despachó by Name "+nombre);
+    
+    // let result = arrPaises?.filter(el => {
+    //         if (el.name.toLowerCase().includes(action.payload.toLowerCase())) {
+    //         return el
+    //     }
+    // }) 
+    // if result.length
+
+
     return {
         type: "GET_BY_NAME",
         payload: nombre
