@@ -24,10 +24,10 @@ export function getCountryById(id) {
     }
 }
 
-export function postActivity(){
+export function postActivity(objActividad){
     return async (dispatch) => {
         try {
-            const api = await axios.post(`${URL_BASE_PAIS}/activity`)
+            const api = await axios.post(`${URL_BASE_PAIS}/activity`, objActividad);
             const res= api.data?.map(a=> a.nombre);
             return dispatch({
                 type: "POST_ACTIVITY",

@@ -1,32 +1,45 @@
 import { useRef } from "react";
 import "./actividad.css";
-import styled from "styled-components";
 
 
-export function FormActividad( {datos, persona ,  error , handleChange  ,handleSubmit, vaciarCampos, segundoArrpaises, primerArrPaises, handlePersonaChange, handleChangePais}  ){
+
+export function FormActividad( {data , datos ,  handleChange, error , handle, submit } ){
     
+    
+    console.log("los datos deberían aparecer aquí...");
+    console.log(datos);
 
+    console.log("aquí debería aparecer ArrPaises 1");
+    console.log(data.segundoArrPaises);
+    console.log("aquí changue pais");
+    
     
     return( 
             <div className="form">
-            <form  onSubmit={(e)=>handleSubmit(e)}>
+            {/* <form  onSubmit={(e)=>handleSubmit(e)}> */}
+            <form >
                 
                 <label htmlFor="nombre">Nombre:</label>
                     <input
                     type="text"
                     name="nombre"
                     autoFocus
-                    value={persona.nombre}
-                    onChange={handlePersonaChange}
+                    value={datos.nombre}
+                    onChange={handleChange}
                 /> 
                     {!error.nombre ? null : <label className="error">{error.nombre}</label>} 
                 
                     <br/>
                     <label htmlFor="">Dificultad:</label>
 
-                    <input type="range" defaultValue={"1"} name="dificultad" min="1" max="5"  step={"1"} onInput={(e) =>handleChange(e)} /> {datos.dificultad} <br></br>
+                    <input type="range" 
+                        defaultValue={"1"}
+                        name="dificultad"
+                        min="1" max="5" step={"1"} 
+                        onInput={(e) =>handleChange(e)} /> {datos.dificultad} <br></br>
 
                     <label htmlFor="">Temporada:</label>
+
                     <select name="temporada" id="temporada"  onChange={(e)=>handleChange(e)}>
                     <option value=""> Elige </option>
                         <option value="Otoño"> 🍁 Otoño </option>
@@ -34,28 +47,25 @@ export function FormActividad( {datos, persona ,  error , handleChange  ,handleS
                         <option value="Primavera"> 🌼 Primavera </option>
                         <option value="Verano"> 🌤️ Verano </option>
                     </select>
-                    {!error.dificultad && error.temporada? null : <span className="error">{error.temporada}</span>}
+                    {!error.temporada? null : <span className="error">{error.temporada}</span>}
                     <label htmlFor="">Duracion:</label>
-                    <input type="number"  min="0"  max="24" name="duracion" placeholder="3 hs" className={error.duracion && 'danger'} 
-                    onChange={(e) => handleChange(e)} />
+                    <input type="number"  
+                        min="0"  max="24"
+                        name="duracion" 
+                        placeholder="3 hs"
+                        className={error.duracion && 'danger'} 
+                        onChange={(e) => handleChange(e)}
+                    />
         
                 <label htmlFor="" > <p> Paises:</p> </label>
                 <div className="grid">
+                
                 <div className="paises">
                 {
-                    primerArrPaises?.map( p => { 
-                    
-                    return (<label htmlFor="" key={p.id}> 
-                    <input type="checkbox" value={p.id}  name={p.name} onChange={e=>handleChangePais(e)} />  {` ${p.id} `} <img className="flag" src={p.flag} alt="flag" /> 
-                    </label> )})
-                }
-                </div>
-                <div className="paises">
-                {
-                    segundoArrpaises?.map( p => { 
+                    data.paisesArr?.map( p => { 
                     
                     return (<label htmlFor={"id-"+p.id} key={p.id}> 
-                    <input type="checkbox"  id={"id-"+p.id}    name={p.name} onChange={e=>handleChangePais(e)} />  {` ${p.id} `} <img className="flag" src={p.flag} alt="flag" />
+                    <input type="checkbox"  id={"id-"+p.id}    name={p.name} onChange={(e)=>handle(e)} />  {` ${p.id} `} <img className="flag" src={p.flag} alt="flag" />
                     </label> )})
                 }
                 </div>
@@ -66,8 +76,8 @@ export function FormActividad( {datos, persona ,  error , handleChange  ,handleS
                 }</label> 
                     
                 
-                <button onClick={vaciarCampos} className="btn" > Borrar Países</button>
-                <button type="submit" className="btn"  onClick={handleSubmit} > Crear Actividad </button>  
+                <button onClick={(e)=>submit(e)} className="btn" > Borrar Países</button>
+                <button type="submit" className="btn"  onClick={(e)=>submit(e)} > Crear Actividad </button>  
             </form>
         </div>
     );
@@ -107,6 +117,6 @@ export function FormActividad( {datos, persona ,  error , handleChange  ,handleS
     // height: 18px;
     // width: 20px;
     // border-radius:50%;
-    // object-fit: cover;
+    // dataect-fit: cover;
     // `;
     
