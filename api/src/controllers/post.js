@@ -1,6 +1,7 @@
 const { Country , Activity } = require('../db');
 
 async function addActivity(req, res){
+    let count=0;
     
     let { nombre,
         dificultad,
@@ -14,7 +15,7 @@ async function addActivity(req, res){
         dificultad,
         temporada,
         duracion,
-        id,
+        id: `${id}Z${count}`
         })
     let paisesBd= await Country.findAll({
         where: {name: paises}
@@ -22,7 +23,8 @@ async function addActivity(req, res){
     
     creada.addCountry(paisesBd);
     console.log(creada);
-    res.send(creada);      
+    count=count+1;
+    res.send(creada); 
 }
 
 module.exports= addActivity;

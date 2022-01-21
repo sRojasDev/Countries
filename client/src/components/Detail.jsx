@@ -72,6 +72,15 @@ export default function Detail(){
             <Div2 >
                 <MyButton onClick={handleClick}>Ocultar</MyButton> <br/>
                 Actividades:
+                <> {pais.activities?.map(p =>{
+                    return (<><p> {p.nombre} </p> 
+                        <p>Dificultad: {p.dificultad} </p>
+                        <p>Temporada: {p.temporada}</p>
+                        <p>Duración: {p.duracion} hs</p>
+                        </>
+                        )
+                })}</>
+                <p>{console.log(pais.activities)}</p>
             </Div2>
         </Detalles>
     )

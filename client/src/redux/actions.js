@@ -28,7 +28,9 @@ export function postActivity(objActividad){
     return async (dispatch) => {
         try {
             const api = await axios.post(`${URL_BASE_PAIS}/activity`, objActividad);
-            const res= api.data?.map(a=> a.nombre);
+            const res= api.data;
+            console.log(api);
+            console.log(res);
             return dispatch({
                 type: "POST_ACTIVITY",
                 payload: res,

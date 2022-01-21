@@ -11,7 +11,7 @@ export function FormActividad( {data , datos ,  handleChange, error , handle, su
 
     console.log("aquí debería aparecer ArrPaises 1");
     console.log(data.segundoArrPaises);
-    console.log("aquí changue pais");
+    
     
     
     return( 
@@ -70,7 +70,8 @@ export function FormActividad( {data , datos ,  handleChange, error , handle, su
                 }
                 </div>
                 </div>
-                <label htmlFor="" className="" > {Object.keys(datos.paises)?.map(p=>{
+                <label htmlFor="" className="" > {datos.paises?.map(p=>{
+                    console.log(p);
                     return (<h3>{p}</h3>)
                     })
                 }</label> 

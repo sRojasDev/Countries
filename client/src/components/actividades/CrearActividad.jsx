@@ -17,6 +17,8 @@ export default function CrearActividad(){
     const primerArrPaises=paisesArr.slice(0, 126); 
     const segundoArrpaises=paisesArr.slice(126);
 
+    const dispatch= useDispatch();
+
     const [datos, setDatos]= useState(datosInit);
     const [error, setError]= useState({});
     const handleChangeDatos = (e) => setDatos({
@@ -41,13 +43,19 @@ export default function CrearActividad(){
         e.preventDefault();
         console.log("llegó al submit");
         console.log(e.target);
-//         setDatos({
-//         ...datos,
-//         [e.target.name]: e.target.value,
-// })
+
+        let cut= datos.temporada.slice(0,3);
+        let cutname=datos.nombre.slice(0,3);
+        setDatos({
+            ...datos,
+            id: cutname+datos.paises.length+"_"+cut,
+        });
+        console.log(datos.id);
+        dispatch(postActivity(datos));
+
     };
 
-    //const dispatch= useDispatch();
+    
 
 
     console.log(datos);
