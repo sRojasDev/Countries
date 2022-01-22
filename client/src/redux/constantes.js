@@ -8,7 +8,9 @@ export const ORDEN_ZA="ORDEN_ZA";
 export const ORDEN_POBL_MAY="ORDEN_POBL_MAY";
 export const ORDEN_POBL_MENOR="ORDEN_POBL_MENOR";
 
-export const SEARCH_IN_MY_STATE="SEARCH_IN_MY_STATE";
+export const SEARCH_IN_MY_STATE="SEARCH_IN_MY_STATE"; 
 
 
 export const URL_BASE_PAIS="http://localhost:3001";
+
+export const Colores=["#f15bb5","#9b5de5", "#fee440","#ffaa00", "#00bbf9","#dda15e"];

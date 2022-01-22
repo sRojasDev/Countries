@@ -95,7 +95,7 @@ export default function Home(){
             <label id='idActivity'> Actividad Turistica: </label>
             <select id='idActivity' onChange={(e) => filtrado(e)} >            
             <option > -- </option>
-                {activArr?.map((act, i) => { return <option key={'ACT.'+ i} value={act} > {act} </option> })}
+                {/* {activArr?.map((act, i) => { return <option key={'ACT.'+ i} value={act} > {act} </option> })} */}
             </select>
         </div>
 

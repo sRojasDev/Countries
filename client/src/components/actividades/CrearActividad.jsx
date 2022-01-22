@@ -21,10 +21,12 @@ export default function CrearActividad(){
 
     const [datos, setDatos]= useState(datosInit);
     const [error, setError]= useState({});
-    const handleChangeDatos = (e) => setDatos({
-        ...datos,
-        [e.target.name]: e.target.value,
-    });
+    const handleChangeDatos = (e) =>{ 
+        setDatos({
+            ...datos,
+            [e.target.name]: e.target.value,
+        });
+    }
     function addPais(pais){
         setDatos(
             {...datos, paises:[...datos.paises, pais] }
@@ -46,12 +48,12 @@ export default function CrearActividad(){
 
         let cut= datos.temporada.slice(0,3);
         let cutname=datos.nombre.slice(0,3);
-        setDatos({
+        console.log(datos.id);
+        dispatch(postActivity({
             ...datos,
             id: cutname+datos.paises.length+"_"+cut,
-        });
-        console.log(datos.id);
-        dispatch(postActivity(datos));
+        }));
+        setDatos(datosInit);
 
     };
 

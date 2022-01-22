@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NoPais from "./notFound/NoPais";
 import styled from "styled-components";
+import CardAct from "./home/CardAct";
 
 export default function Detail(){
     const [mas,setMas]=useState(false);
@@ -72,14 +73,21 @@ export default function Detail(){
             <Div2 >
                 <MyButton onClick={handleClick}>Ocultar</MyButton> <br/>
                 Actividades:
-                <> {pais.activities?.map(p =>{
+                {/* <> {pais.activities?.map(p =>{
                     return (<><p> {p.nombre} </p> 
                         <p>Dificultad: {p.dificultad} </p>
                         <p>Temporada: {p.temporada}</p>
                         <p>Duración: {p.duracion} hs</p>
                         </>
                         )
-                })}</>
+                })}</> */}
+                {
+                    <> {pais.activities?.map(p =>{
+                        return (
+                            <CardAct  nombre={p.nombre} dificultad={p.dificultad} temporada={p.temporada} duracion={p.duracion} id={p.id} />
+                            )
+                    })}</>
+                }
                 <p>{console.log(pais.activities)}</p>
             </Div2>
         </Detalles>
