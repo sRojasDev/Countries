@@ -13,14 +13,14 @@ export default function IndexAct(){
     }, [])
 
     const Contenedor=styled.div`
-    background-image: url(${imgs.actfondo});
-    background-position:10% 45%;
-    color:rgb(0, 36, 42, 0.8);;
+    background-image: linear-gradient( 60deg,#cacece, #3383b8,rgb(0, 36, 42, 0.9) 50% );
+    color:rgb(0, 36, 42, 0.8);
 
     `;
     const Div1=styled.div`
     background-image: url(${imgs.actfondo2});
-    padding:0.8em;
+    background-size: contain;
+    padding:1.3em;
     color:#fff;
     `;
 

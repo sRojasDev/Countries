@@ -43,25 +43,10 @@ function BuscarAct() {
         />  
         <input
             type="button"
-            value="Agrega un Familiar"
+            value="Buscar Actividad"
             onClick={agregaFamiliar}
         />
-        {
-            familiar.map((el, i) => (
-            <div key={`persona-${i}`}>
-                <label htmlFor={`nombre-${i}`}>{`Familiar #${i + 1}`}</label>
-            <input
-                type="text"
-                name={`nombre-${i}`}
-                id={i}
-                data-name="nombre"
-                value={el.nombre}
-                onChange={handleFamiliarChange}
-            />
-        </div>
-        ))
-        }
-        <input type="submit" value="Submit" />        
+            
     </form>   
     );
 };

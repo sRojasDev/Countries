@@ -1,0 +1,13 @@
+#filtros{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,4fr));
+    background-image: radial-gradient( at 2% 98%, #f0d8b2 15%, #3383b8 , rgb(0, 36, 42, 0.9) 50% ); 
+}
+
+/* #f0d8b2, #cacece , #67dd49*/
+.label{
+    color:#fff;
+    
+}

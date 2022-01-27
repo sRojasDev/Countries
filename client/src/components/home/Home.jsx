@@ -7,6 +7,7 @@ import {  filter_Actividad,filter_Continente, orden_AZ, orden_ZA, orden_Pobl_MAY
 import NavBar from "../nav/NavBar";
 import NoPais from "../notFound/NoPais";
 import "../nav/nav.css";
+import "./home.css";
 //import Filtros from "../filtro/filtros";
 
 export default function Home(){
@@ -62,12 +63,10 @@ export default function Home(){
     } //rgb(0, 36, 42, 0.8)
 
     const Fondo= styled.div`
-    background-image: radial-gradient( at 2% 98%, #f0d8b2 15%,  #40aa26,#3383b8 , rgb(0, 36, 42, 0.8) 50%);
-    background-size:contain;
-    object-fit: cover;
-    background-position: 60 40;
-    background-attachment:auto;
+    background-image: linear-gradient( 298deg , #cacece, #3383b8,rgb(0, 36, 42, 0.9) 50% );
+    
     `;
+    
     while(estado.error && paises.length===0 ){
         return( <NoPais/> )
     }
@@ -75,10 +74,10 @@ export default function Home(){
     return( 
         <Fondo>
             
-            <form>
-        <div className='form-filters'>
+            <form id="filtros">
+        
         <div>
-            <label id='iContinente'> Continente: </label>
+            <label id='iContinente' className="label"> Continente: </label>
             <select id='iContinente' defaultValue='API' name='continente' onChange={(e) => filtrado(e)} >
                 <option value='API' > Todos </option>
                 <option value='Africa' > Africa </option>
@@ -92,7 +91,7 @@ export default function Home(){
         </div>
 
         <div>
-            <label id='idActivity'> Actividad Turistica: </label>
+            <label id='idActivity' className="label"> Actividad Turistica: </label>
             <select id='idActivity' onChange={(e) => filtrado(e)} >            
             <option > -- </option>
                 {/* {activArr?.map((act, i) => { return <option key={'ACT.'+ i} value={act} > {act} </option> })} */}
@@ -100,7 +99,7 @@ export default function Home(){
         </div>
 
         <div>
-            <label id='idAlfa' > Orden Alfabetico: </label>
+            <label id='idAlfa' className="label" > Orden Alfabetico: </label>
             <select id='idAlfa' name='Alfa' onChange={(e) => filtrado(e)} >  
                 <option > -- </option>
                 <option value='A-Z' > A-Z </option>
@@ -109,14 +108,14 @@ export default function Home(){
         </div>
 
         <div>
-            <label id='idPoblacion'> Poblacion: </label>
+            <label id='idPoblacion' className="label"> Poblacion: </label>
             <select id='idPoblacion' name='Poblacion' onChange={(e) => filtrado(e)} >            
                 <option > -- </option>
                 <option value='filterPoblMay' > Mayor </option>
                 <option value='filterPoblMen' > Menor </option>
             </select>
             </div>
-        </div>
+        
     </form>
         <div>
         <h2>.  Países del Mundo </h2>

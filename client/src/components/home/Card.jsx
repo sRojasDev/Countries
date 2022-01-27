@@ -21,6 +21,7 @@ export default function Card({name, flag, region, id}){
     margin:0px;
     `
     const Targeta= styled.div`
+    box-sizing: content-box;
     display:flex;
     margin: 1em;
     align-items: center;
@@ -31,12 +32,14 @@ export default function Card({name, flag, region, id}){
     background: rgb(86.7, 86.7, 86.7, 0.88);
     border-radius:2px;
     padding:2%;
+    border: 1px rgb(86.7, 86.7, 86.7, 0.88) solid ;
 
     &:hover{
         transition: 0.2s;
+        
         background: rgba(219, 184, 94, 0.9);
         color: #00242a;
-        
+        border: 1px rgb(255,255,255, 0.88) solid ;
         h3{
             font-weight:500;
         }

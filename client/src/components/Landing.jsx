@@ -14,7 +14,7 @@ export default function Landing(){
     margin-top:0%;
     margin-bottom:20%;
     margin-right: 90%;
-    width: 8em;
+    width: 6em;
     min-width: 60px;
     border-radius:30%;
     @keyframes rotation {
@@ -38,10 +38,10 @@ export default function Landing(){
                 0.3em 0.3em 1em rgba(0,0,0,0.0);
         }
         70%{
-            margin-top: 15% ;
+            margin-top: 20% ;
         }
         80%{
-            margin-top: 20% ;
+            margin-top:12 % ;
         }
 
         100% {
@@ -88,7 +88,7 @@ export default function Landing(){
     const MyDiv=styled.div`
     height:300px;
     margin-top:20%;
-    margin-right:15%;
+    margin-right:10%;
     `;
     return( 
         <Marco>
