@@ -14,7 +14,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle= createGlobalStyle`
 *{
-  margin:2px;
+  margin:0px;
   font-family: Verdana, sans-serif;
   font-weight:500;
 

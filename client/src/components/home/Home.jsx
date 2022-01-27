@@ -59,10 +59,10 @@ export default function Home(){
             setFilter('actividad');
             filter_Actividad(e.target.value);
         }
-    }
+    } //rgb(0, 36, 42, 0.8)
 
     const Fondo= styled.div`
-    background-image: url(${images.fondo});
+    background-image: radial-gradient( at 2% 98%, #f0d8b2 15%,  #40aa26,#3383b8 , rgb(0, 36, 42, 0.8) 50%);
     background-size:contain;
     object-fit: cover;
     background-position: 60 40;

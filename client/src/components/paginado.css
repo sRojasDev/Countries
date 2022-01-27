@@ -1,8 +1,10 @@
 .hidden{
     visibility:hidden;
+    
 }
 .visible{
     visibility: visible;
+    
 }
 .activado{
     box-shadow: 3px 3px  rgba(235, 239, 240, 0.911);
