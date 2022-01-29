@@ -16,13 +16,14 @@ export default function CardAct({nombre, dificultad, temporada, duracion,id}){
     padding-bottom: 5%;
     background: ${Colores[dificultad]};
     border-radius:2px;
+    border: 1px ${Colores[dificultad]} solid;
     padding:2%;
 
     &:hover{
         transition: 0.2s;
-        background: rgba(219, 184, 94, 0.9);
+        border: 1px #fff solid;
         color: #00242a;
-        
+        opacity:0.9;
         h3{
             font-weight:500;
         }

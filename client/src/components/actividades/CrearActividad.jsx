@@ -74,7 +74,7 @@ return (
     <FormActividad data={ {paisesArr, segundoArrpaises} } datos={datos} error={error}  handleChange={handleChangeDatos} handle={changePais} submit={handleSubmit}  />
 )
 }
-//obj={datos, nombreAct, error, primerArrPaises, segundoArrpaises }    handleChange={handleChange}  handleSubmit={handleSubmit} vaciarCampos={vaciarCampos} handlePersonaChange={handlePersonaChange} handleChangePais={handleChangePais}
+
 
 function verificar(datos, submit=false, error){  
     var errors= {};
@@ -86,7 +86,7 @@ function verificar(datos, submit=false, error){
     if (datos.duracion==="" || datos.duracion==="e") {console.log(`duración = ""`); return false}
     if (!datos.paises[0]) {console.log(`paises = []`); return false}
     if (error.values){ console.log("llegó a error values")}
-    // datos.paises.length
+    
     let values = Object.values(error);
     console.log(values);
     if(values[0]) { return false }
@@ -105,11 +105,4 @@ function verificar(datos, submit=false, error){
     return errors;
 }
 
-// function buscarVacios(arr1, arr2){
-//     for(let i=0; i<arr1.length-1 ;i++){
-//         if(arr1[i] !== arr2[i] ){
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+

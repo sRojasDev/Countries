@@ -13,4 +13,4 @@ export const SEARCH_IN_MY_STATE="SEARCH_IN_MY_STATE";
 
 export const URL_BASE_PAIS="http://localhost:3001";
 
-export const Colores=["#f15bb5","#9b5de5", "#fee440","#ffaa00", "#00bbf9","#dda15e"];
+export const Colores=["#f15bb5","#9b5de5", "#fee440","#04d6ba", "#00bbf9","#dda15e"];
