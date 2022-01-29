@@ -3,6 +3,7 @@ import "./actividad.css";
 
 
 
+
 export function FormActividad( {data , datos ,  handleChange, error , handle, submit } ){
     
     
@@ -26,8 +27,9 @@ export function FormActividad( {data , datos ,  handleChange, error , handle, su
                     autoFocus
                     value={datos.nombre}
                     onChange={handleChange}
+                    className={error.nombre?"danger": ""}
                 /> 
-                    {!error.nombre ? null : <label className="error">{error.nombre}</label>} 
+                    
                 
                     <br/>
                     <label htmlFor="">Dificultad:</label>
@@ -40,20 +42,21 @@ export function FormActividad( {data , datos ,  handleChange, error , handle, su
 
                     <label htmlFor="">Temporada:</label>
 
-                    <select name="temporada" id="temporada"  onChange={(e)=>handleChange(e)}>
+                    <select name="temporada" id="temporada"  onChange={(e)=>handleChange(e)}  className={!error.dificultad && error.temporada?"danger": ""} >
                     <option value=""> Elige </option>
                         <option value="Otoño"> 🍁 Otoño </option>
                         <option value="Invierno"> ❄️ Invierno</option>
                         <option value="Primavera"> 🌼 Primavera </option>
                         <option value="Verano"> 🌤️ Verano </option>
                     </select>
-                    {!error.temporada? null : <span className="error">{error.temporada}</span>}
+                    {/* {!error.temporada? null : <span className="error">{error.temporada}</span>} */}
+                    
                     <label htmlFor="">Duracion:</label>
                     <input type="number"  
                         min="0"  max="24"
                         name="duracion" 
                         placeholder="3 hs"
-                        className={error.duracion && 'danger'} 
+                        className={!error.temporada && error.duracion?"danger": ""}
                         onChange={(e) => handleChange(e)}
                     />
         
@@ -75,10 +78,18 @@ export function FormActividad( {data , datos ,  handleChange, error , handle, su
                     return (<h3>{p}</h3>)
                     })
                 }</label> 
-                    
+                {console.log("Aqui aparece error...")}
+                { console.log(error)}
+                {error.nombre && <p className="error">{error.nombre}</p> }
+                {error.dificultad && !error.nombre  && <p className="error">{error.dificultad}</p> }
+                {error.temporada && !error.nombre && !error.dificultad && <p className="error">{error.temporada}</p> }
+                {error.duracion && !error.temporada && <p className="error">{error.duracion}</p> }
+                {error.paises && <p className="error">{error.paises}</p> }
                 
-                <button onClick={(e)=>submit(e)} className="btn" > Borrar Países</button>
-                <button type="submit" className="btn"  onClick={(e)=>submit(e)} > Crear Actividad </button>  
+                <button onClick={(e)=>console.log("borrar todo actualiza la página")} className="btn" > Borrar Todo</button>
+                
+                <button type="submit" className="btn"  onClick={(e)=>submit(e)} > Crear Actividad </button> 
+                
             </form>
         </div>
     );
